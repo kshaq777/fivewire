@@ -1,7 +1,7 @@
 var express = require("express");
 
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT;
 
 // Require the models to reflect our database tables
 var db = require("./models");
