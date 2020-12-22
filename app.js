@@ -24,9 +24,13 @@ app.use(express.static("public"));
 // app.use(passport.session());
 
 // Routes for interacting with the DB
-require("./routes/user-routes.js")(app);
-require("./routes/playlist-routes.js")(app);
-require("./routes/html-routes.js")(app);
+const ur = require("./routes/user-routes.js")(app);
+const pr = require("./routes/playlist-routes.js")(app);
+const hr = require("./routes/html-routes.js")(app);
+
+app.use(ur);
+app.use(pr);
+app.use(hr);
 
 // Connect to the DB
 db.sequelize.sync().then(function() {
